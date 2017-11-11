@@ -12,11 +12,12 @@
     "build:clean": "rimraf lib",
     "build:lib": "babel -d lib src --ignore '**/__tests__/**'",
     "build:flow": "flow-copy-source -v -i '**/__tests__/**' src lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "flow": "flow"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeprinz/onlyjs.git"
+    "url": "git+https://github.com/jeprinz/AlexaAnnoying.git"
   },
   "keywords": [
     "html",
@@ -24,16 +25,10 @@
     "json",
     "object",
     "literals",
-    "only",
-    "js",
-    "onlyjs"
+    "js"
   ],
   "author": "Jacob Prinz",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jacob5555555555/onlyjs/issues"
-  },
-  "homepage": "https://github.com/jacob5555555555/onlyjs#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -49,6 +44,8 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "alexa-sdk": "^1.0.19"
+
+    "alexa-sdk": "^1.0.19",
+    "flow": "^0.2.3"
   }
 }
