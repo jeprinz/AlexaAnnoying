@@ -1,0 +1,55 @@
+{
+  "name": "alexa-backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/main.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "build": "npm run build:clean && npm run build:lib && npm run build:flow",
+    "build:clean": "rimraf lib",
+    "build:lib": "babel -d lib src --ignore '**/__tests__/**'",
+    "build:flow": "flow-copy-source -v -i '**/__tests__/**' src lib",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeprinz/onlyjs.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "json",
+    "object",
+    "literals",
+    "only",
+    "js",
+    "onlyjs"
+  ],
+  "author": "Jacob Prinz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacob5555555555/onlyjs/issues"
+  },
+  "homepage": "https://github.com/jacob5555555555/onlyjs#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.42.0",
+    "flow-copy-source": "^1.1.0",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1"
+  },
+    "directories": {
+    "lib": "lib",
+    "src": "src"
+  }
+
+}
