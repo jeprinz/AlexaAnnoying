@@ -45,8 +45,8 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-
     "alexa-sdk": "^1.0.19",
+    "compromise": "^11.1.0",
     "flow": "^0.2.3"
   }
 }
