@@ -1,3 +1,4 @@
+// @flow
 //Returns list of some words in the input, in order of importance (most to least)
 
 import nlp from 'compromise'
@@ -8,11 +9,25 @@ export function load(name: string){
 }
 
 const verbs = "gets".split(" ")
+const nouns = "you me him her I".split(" ")
+const articles = "a an the".split(" ")
+const others = "can".split(" ")
 
 function getPOS(word: string){
+  word = word.toLowerCase()
   if (verbs.indexOf(word) >= 0){
     return "verb"
   }
+  if (nouns.indexOf(word) >= 0){
+    return "noun"
+  }
+  if (articles.indexOf(word) >= 0){
+    return "article"
+  }
+  if (others.indexOf(word) >= 0){
+    return "other"
+  }
+
   const r = nlp(word);
   if (r.nouns().out('string') != ""){
     return "noun"
@@ -51,8 +66,11 @@ function getImportance(words: [string], poss: [string], i: number): number{
   if (wordp == "noun"){
     importance += 1
   }
-  if (nextp == "verb"){
+  if (wordp == "noun" && nextp == "verb"){
     importance += 1
+  }
+  if (wordp == "noun" && (prevp == "verb" || prevp == "article")){
+    importance += 0.5
   }
   if (prevp == "adjective"){
     importance += 1
@@ -61,7 +79,11 @@ function getImportance(words: [string], poss: [string], i: number): number{
     importance += 0.5
   }
 
-  if (i == 0 && (wordp == "noun" || wordp == "verb")){
+  if (i == 0 && ((wordp == "noun" && nextp != "noun") || wordp == "verb")){
+    importance += 2
+  }
+
+  if (i == words.length - 1 && wordp == "verb"){
     importance += 2
   }
 
