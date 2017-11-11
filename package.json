@@ -13,7 +13,8 @@
     "build:lib": "babel -d lib src --ignore '**/__tests__/**'",
     "build:flow": "flow-copy-source -v -i '**/__tests__/**' src lib",
     "prepublish": "npm run build",
-    "flow": "flow"
+    "flow": "flow",
+    "repl": "babel-node"
   },
   "repository": {
     "type": "git",
