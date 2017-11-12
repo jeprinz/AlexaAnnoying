@@ -40,11 +40,24 @@ function getPOS(word: string){
   }
 }
 
-export function importantIndex(text: string){
+export function importantWords(text: string){
   var words: any =  nlp.tokenize(text).out("string").split(" ")
   var poss = words.map((w) => getPOS(w))
-  console.log("poss: " + JSON.stringify(poss))
-  return sortByImportance(words, poss);
+  // return sortByImportance(words, poss);
+  var importances: any =
+    poss.map((word, i, arr) => getImportance(words, poss, i))
+  return importances
+}
+
+export function importantTwoAndAll(text: string): [number, number, [string]]{
+  const importancies = importantWords(text)
+  var biggest = 0
+  var biggIndex =
+    importancies.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+  var secondIndex =
+    importancies.reduce((iMax, x, i, arr) => x > arr[iMax] && i != biggIndex ? i : iMax, 0);
+
+  return [biggIndex, secondIndex, nlp.tokenize(text).out("string").split(" ")]
 }
 
 function sortByImportance(words: [string], poss: [string]){
