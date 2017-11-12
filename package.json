@@ -57,6 +57,7 @@
     "babelrc-rollup": "^3.0.0",
     "compromise": "^11.1.0",
     "flow": "^0.2.3",
+    "jszip": "^3.1.5",
     "rollup": "^0.51.5",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",

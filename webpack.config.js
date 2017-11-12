@@ -10,7 +10,7 @@ module.exports = {
   target: "node",
   output: {
     publicPath: '/',
-    filename: './dist/bundle.js',
+    filename: './DeploymentFiles/index.js',
     library: "test",
     libraryTarget: "umd"
   },

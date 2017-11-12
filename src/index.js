@@ -1,6 +1,6 @@
 // 2. Skill Code =======================================================================================================
 
-// import {moreLike} from './moreLike'
+import {moreLike} from './moreLike'
 
 const Alexa = require('alexa-sdk');
 

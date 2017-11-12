@@ -1,0 +1,9 @@
+{
+  "name": "alexaTest",
+  "version": "1.0.0",
+  "description": "So cool",
+  "main": "index.js",
+  "dependencies": {
+
+  }
+}
