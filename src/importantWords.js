@@ -5,7 +5,8 @@
 // const nlp = require('compromise')
 // import {nlp} from '../node_modules/compromise/builds/compromise.es6.min.js'
 // const nlp = require('../node_modules/compromise/builds/compromise.es6.min.js')
-import {nlp} from './compromise.min'
+// import {nlp} from './compromise.min'
+const nlp = require('./compromise.min')
 
 export function load(name: string){
   delete require.cache[require.resolve(name)]

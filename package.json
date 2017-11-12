@@ -17,7 +17,7 @@
     "repl": "babel-node",
     "rollup": "rollup -c --f cjs",
     "webpack": "rm dist/* ; webpack",
-    "uglify": "uglifyjs dist/bundle.js -o dist/bundle.min.js"
+    "uglify": "uglifyjs -m dist/bundle.js -o dist/bundle.min.js"
   },
   "repository": {
     "type": "git",
