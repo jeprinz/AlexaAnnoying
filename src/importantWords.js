@@ -1,7 +1,11 @@
 // @flow
 //Returns list of some words in the input, in order of importance (most to least)
 
-import nlp from 'compromise'
+// import nlp from 'compromise'
+// const nlp = require('compromise')
+// import {nlp} from '../node_modules/compromise/builds/compromise.es6.min.js'
+// const nlp = require('../node_modules/compromise/builds/compromise.es6.min.js')
+import {nlp} from './compromise.min'
 
 export function load(name: string){
   delete require.cache[require.resolve(name)]
@@ -43,6 +47,7 @@ function getPOS(word: string){
 export function importantWords(text: string){
   var words: any =  nlp.tokenize(text).out("string").split(" ")
   var poss = words.map((w) => getPOS(w))
+  console.log(poss)
   // return sortByImportance(words, poss);
   var importances: any =
     poss.map((word, i, arr) => getImportance(words, poss, i))
@@ -51,11 +56,13 @@ export function importantWords(text: string){
 
 export function importantTwoAndAll(text: string): [number, number, [string]]{
   const importancies = importantWords(text)
+  console.log(importancies)
   var biggest = 0
   var biggIndex =
     importancies.reduce((iMax, x, i, arr) => x > arr[iMax] ? i : iMax, 0);
+  const start = biggIndex == 0? 1: 0
   var secondIndex =
-    importancies.reduce((iMax, x, i, arr) => x > arr[iMax] && i != biggIndex ? i : iMax, 0);
+    importancies.reduce((iMax, x, i, arr) => x > arr[iMax] && i != biggIndex ? i : iMax, start);
 
   return [biggIndex, secondIndex, nlp.tokenize(text).out("string").split(" ")]
 }

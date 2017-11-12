@@ -1,5 +1,7 @@
 // 2. Skill Code =======================================================================================================
 
+import {moreLike} from './moreLike'
+
 const Alexa = require('alexa-sdk');
 
 exports.handler = function(event, context, callback) {
@@ -22,7 +24,7 @@ const handlers = {
 
         var say = this.event.request.intent.slots.CatchAll.value
         // This is the variable that you would take and permute and return for output
-        // say = moreLike(say)
+        say = moreLike(say)
 
         this.response.speak(say);
         this.emit(':responseReady');

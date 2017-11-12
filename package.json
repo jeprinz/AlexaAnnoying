@@ -15,7 +15,8 @@
     "prepublish": "npm run build",
     "flow": "flow",
     "repl": "babel-node",
-    "rollup": "rollup -c --f cjs"
+    "rollup": "rollup -c --f cjs",
+    "webpack": "rm dist/* && webpack"
   },
   "repository": {
     "type": "git",
@@ -45,13 +46,18 @@
     "flow-bin": "^0.42.0",
     "flow-copy-source": "^1.1.0",
     "mocha": "^3.2.0",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "babel-loader": "^6.4.1",
+    "webpack": "^2.3.2"
+
   },
   "dependencies": {
     "babelrc-rollup": "^3.0.0",
     "compromise": "^11.1.0",
     "flow": "^0.2.3",
     "rollup": "^0.51.5",
-    "rollup-plugin-babel": "^3.0.2"
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
   }
 }
