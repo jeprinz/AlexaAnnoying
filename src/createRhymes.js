@@ -6,6 +6,7 @@ let derp = "assets/wordlistshort.txt"
 let cmuDict = fs.createReadStream(path)
 let wordList = fs.createReadStream("assets/wordlist.10000.txt")
 let gutenList = fs.createReadStream("assets/gutenList.txt")
+let googList = fs.createReadStream("assets/googlelist.txt")
 
 export let dict = {}
 
@@ -47,7 +48,8 @@ function setPronunciation(line) {
   }
 }
 readLines(wordList, addToSet)
-//readLines(gutenList, addGutenToSet)
+readLines(gutenList, addGutenToSet)
+readLines(googList, addToSet)
 readLines(cmuDict, setPronunciation)
 
 function addGutenToSet(line) {
@@ -64,14 +66,14 @@ setTimeout(function() {
   }
   dict = temp
   console.log(Object.keys(dict).length)
-  let jsondict = JSON.stringify(dict)
+  let jsondict = "export function getRhymes() {return rhymes}\nvar rhymes = " + JSON.stringify(dict)
 //  fs.writeFile("src/rhymeDict.js", jsondict, function(err) {
   fs.writeFile("src/rhymeDict.js", jsondict, function(err) {
     if (err) {
       return console.log(err)
     }
   })
-}, 10000);
+}, 60000);
 
 //don't forget to go in and fix hello
 
