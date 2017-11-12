@@ -29,7 +29,7 @@ export function moreLike(input: string): string{
     innerText = allAsWords.map(formatWord).join(" ")
   }
 
-  return "<speak> more like " + innerText + ".</speak>"
+  return "more like " + innerText + "."
 }
 
 function formatWord(word: Word): string{
