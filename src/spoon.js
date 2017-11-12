@@ -52,7 +52,7 @@ function cheeseSlice(word) {
 }
 
 function isVowel(char) {
-  if ("aeiou".indexOf(char) >= 0) {
+  if ("aeiouAEIOU".indexOf(char) >= 0) {
     return true
   }
   else {

@@ -8,6 +8,8 @@ import {getRhymes} from './rhymeDict'
 let rhymes = getRhymes()
 
 export function mixWords(word1:string, word2:string):[Word, Word] {
+  word1 = word1.toUpperCase()
+  word2 = word2.toUpperCase()
   if (rhymes[word1] && rhymes[word2]) {
     let rhymes1 = findRhymes(word1)
     let rhymes2 = findRhymes(word2)
@@ -40,6 +42,12 @@ export function mixWords(word1:string, word2:string):[Word, Word] {
     }
   }
   else {
+    if (Math.random() < .5) {
+      return [
+        {type: "TextWord", val: word2},
+        {type: "TextWord", val: word1}
+      ]
+    }
     let words = cheeseSpoon(word1, word2)
     return [
       {type: "TextWord", val: words[0]},

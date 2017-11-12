@@ -63,7 +63,9 @@ setTimeout(function() {
     }
   }
   dict = temp
+  console.log(Object.keys(dict).length)
   let jsondict = JSON.stringify(dict)
+//  fs.writeFile("src/rhymeDict.js", jsondict, function(err) {
   fs.writeFile("src/rhymeDict.js", jsondict, function(err) {
     if (err) {
       return console.log(err)
