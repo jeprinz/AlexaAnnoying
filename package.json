@@ -16,7 +16,8 @@
     "flow": "flow",
     "repl": "babel-node",
     "rollup": "rollup -c --f cjs",
-    "webpack": "rm dist/* && webpack"
+    "webpack": "rm dist/* ; webpack",
+    "uglify": "uglifyjs dist/bundle.js -o dist/bundle.min.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -47,9 +49,9 @@
     "flow-copy-source": "^1.1.0",
     "mocha": "^3.2.0",
     "rimraf": "^2.6.1",
-    "babel-loader": "^6.4.1",
+    "uglify-es": "^3.1.9",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^2.3.2"
-
   },
   "dependencies": {
     "babelrc-rollup": "^3.0.0",
@@ -58,6 +60,7 @@
     "rollup": "^0.51.5",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "uglifyjs": "^2.4.11"
   }
 }

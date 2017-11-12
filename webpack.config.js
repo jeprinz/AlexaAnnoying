@@ -26,8 +26,10 @@ module.exports = {
         }
       }
     ]
-  },
-  devServer: {
-    contentBase: "./src"
   }
+  // plugins: [
+  //   webpack.optimize.UglifyJsPlugin({
+  //     compress: { warnings: false }
+  //   })
+  // ]*/
 };
