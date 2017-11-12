@@ -1,7 +1,7 @@
 // @flow
 import {importantTwoAndAll} from './importantWords'
 import type {Word, TextWord, PhonemeWord} from './WordTypes'
-
+import {mixWords} from './mixWords'
 
 
 function moreLike(input: string): string{
@@ -19,9 +19,9 @@ function moreLike(input: string): string{
   (allAsWords: [Word])
 
   //do swap and whatever
-  //const [new1, new2] = spoonerism(word1, word2)
-  //all[i1] = new1
-  //all[i2] = new2
+  const [new1, new2] = mixWords(word1, word2)
+  allAsWords[i1] = new1
+  allAsWords[i2] = new2
 
 
 
