@@ -26,10 +26,17 @@ export function moreLike(input: string): string{
     const [new1, new2] = mixWords(word1, word2)
     allAsWords[i1] = new1
     allAsWords[i2] = new2
-    innerText = allAsWords.map(formatWord).join(" ")
+    const words = allAsWords.map(formatWord)
+    words[i1] = emphasise(words[i1])
+    words[i2] = emphasise(words[i2])
+    innerText = words.join(" ")
   }
 
   return "more like " + innerText + "."
+}
+
+function emphasise(text: string): string{
+  return "<emphasis level=\"strong\"> " + text + "</emphasis>"
 }
 
 function formatWord(word: Word): string{

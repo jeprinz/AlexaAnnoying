@@ -49,6 +49,6 @@
   "dependencies": {
     "compromise": "^11.1.0",
     "flow": "^0.2.3",
-    "jszip": "^3.1.5",
+    "jszip": "^3.1.5"
   }
 }
