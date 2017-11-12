@@ -1,0 +1,53 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "Item",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "hello",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.NoIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.YesIntent",
+        "samples": []
+      },
+      {
+        "name": "RepeatIntent",
+        "samples": [
+          "{dogs out|CatchAll}"
+        ],
+        "slots": [
+          {
+            "name": "CatchAll",
+            "type": "AMAZON.LITERAL"
+          }
+        ]
+      }
+    ],
+    "invocationName": "water bottle"
+  }
+}
