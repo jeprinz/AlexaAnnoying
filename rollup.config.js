@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import babelrc from 'babelrc-rollup';
 
 export default {
-  entry: 'src/main.js',
+  entry: 'src/index.js',
   dest: 'dist/oneGiantAssFile.js',
   plugins: [
     babel(babelrc())

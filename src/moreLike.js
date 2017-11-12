@@ -4,35 +4,37 @@ import type {Word, TextWord, PhonemeWord} from './WordTypes'
 import {mixWords} from './mixWords'
 
 
-function moreLike(input: string): string{
+export function moreLike(input: string): string{
+  var innerText;
   const [i1, i2, all: [string]] = importantTwoAndAll(input)
-  const word1 = all[i1]
-  const word2 = all[i2]
+  if (all.length <= 2){
+    innerText = input;
+  } else {
+    const word1 = all[i1]
+    const word2 = all[i2]
 
-  const allAsWords: any = all.map(function(w:string): TextWord{
-    return ({
-      type: "TextWord",
-      val: w}
-    )
-  });
+    const allAsWords: any = all.map(function(w:string): TextWord{
+      return ({
+        type: "TextWord",
+        val: w}
+      )
+    });
 
-  (allAsWords: [Word])
+    (allAsWords: [Word])
 
-  //do swap and whatever
-  const [new1, new2] = mixWords(word1, word2)
-  allAsWords[i1] = new1
-  allAsWords[i2] = new2
-
-
-
-  const innerText = allAsWords.map(formatWord).join(" ")
+    //do swap and whatever
+    const [new1, new2] = mixWords(word1, word2)
+    allAsWords[i1] = new1
+    allAsWords[i2] = new2
+    innerText = allAsWords.map(formatWord).join(" ")
+  }
 
   return "<speak> more like " + innerText + ".</speak>"
 }
 
 function formatWord(word: Word): string{
   function phonemeText(word: Word): string{
-    return "<phoneme alphabet=\"ipa\" ph=" + word.val + ">placeholder</phoneme>"
+    return "<phoneme alphabet=\"ipa\" ph=\"" + word.val + "\">placeholder</phoneme>"
   }
   if (word.type == "PhonemeWord"){
     return phonemeText(word)
