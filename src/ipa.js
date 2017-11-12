@@ -48,6 +48,15 @@ for (let vowel of vowelList) {
   vowelPhonemes[vowel] = true
 }
 
+export function isVowel(phoneme) {
+  if (vowelPhonemes[phoneme.substring(0,2)]) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
 export function arpaToIpa(pron) {
   let ipaPron = []
   for (let i = 0; i < pron.length; i++) {
