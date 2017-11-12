@@ -48,7 +48,7 @@ export function findRhymes(word:string):string[] {
     let initialRhymes = rhymeMap[getUltima(rhymes[word])];
     let z = initialRhymes.indexOf(word)
     if (z > -1) {
-      initialRhymes = initialRhymes.splice(z, 1)
+      initialRhymes = initialRhymes.slice(0,z).concat(initialRhymes.slice(z+1))
     }
     return initialRhymes
   }

@@ -5,6 +5,7 @@ let path = "assets/cmudict-0.7b"
 let derp = "assets/wordlistshort.txt"
 let cmuDict = fs.createReadStream(path)
 let wordList = fs.createReadStream("assets/wordlist.10000.txt")
+let gutenList = fs.createReadStream("assets/gutenList.txt")
 
 export let dict = {}
 
@@ -14,7 +15,7 @@ function readLines(input, func) {
   input.on('data', function(data) {
     remaining += data
     let index = remaining.indexOf("\n")
-    while (index > - 1) {
+    while (index > -1) {
       let line = remaining.substring(0, index)
       remaining = remaining.substring(index+1)
       func(line)
@@ -46,7 +47,13 @@ function setPronunciation(line) {
   }
 }
 readLines(wordList, addToSet)
+//readLines(gutenList, addGutenToSet)
 readLines(cmuDict, setPronunciation)
+
+function addGutenToSet(line) {
+  line = line.replace(/[^a-z]/gi, '');
+  addToSet(line)
+}
 
 setTimeout(function() {
   let temp = {}
@@ -65,3 +72,10 @@ setTimeout(function() {
 }, 10000);
 
 //don't forget to go in and fix hello
+
+/* also do
+export function getRhymes() {
+  return rhymes
+}
+var rhymes =
+*/

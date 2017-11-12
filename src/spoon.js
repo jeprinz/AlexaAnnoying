@@ -31,3 +31,31 @@ function sliceStart(pron) {
   }
   return [pron.slice(0,i), pron.slice(i, pron.length)]
 }
+
+export function cheeseSpoon(word1, word2) {
+  let split1 = cheeseSlice(word1)
+  let split2 = cheeseSlice(word2)
+  word1 = split2[0] + split1[1]
+  word2 = split1[0] + split2[1]
+  return [word1, word2]
+}
+
+function cheeseSlice(word) {
+  let i = 0
+  while (i < word.length) {
+    if (isVowel(word[i])) {
+      break
+    }
+    i++
+  }
+  return [word.substring(0,i), word.substring(i)]
+}
+
+function isVowel(char) {
+  if ("aeiou".indexOf(char) >= 0) {
+    return true
+  }
+  else {
+    return false
+  }
+}
