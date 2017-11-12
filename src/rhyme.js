@@ -45,9 +45,14 @@ export function getUltima(pron:string[]):string {
 export function findRhymes(word:string):string[] {
   word = word.toUpperCase()
   if (rhymes[word]) {
-    return rhymeMap[getUltima(rhymes[word])];
+    let initialRhymes = rhymeMap[getUltima(rhymes[word])];
+    let z = initialRhymes.indexOf(word)
+    if (z > -1) {
+      initialRhymes = initialRhymes.splice(z, 1)
+    }
+    return initialRhymes
   }
   else {
-    return [word]
+    return []
   }
 }
