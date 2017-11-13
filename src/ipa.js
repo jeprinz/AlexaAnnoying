@@ -62,12 +62,12 @@ export function arpaToIpa(pron) {
   for (let i = 0; i < pron.length; i++) {
     if (vowelPhonemes[pron[i].substring(0,2)]) {
       ipaPron[i] = ipa[pron[i].substring(0,2)]
-      if (pron[i].charAt(2) == "1") {
+      /*if (pron[i].charAt(2) == "1") {
         ipaPron[i] = "ˈ" + ipaPron[i]
       }
       else if (pron[i].charAt(2) == "2") {
         ipaPron[i] = "ˌ"
-      }
+      }*/
     }
     else {
       ipaPron[i] = ipa[pron[i]]
