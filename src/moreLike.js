@@ -31,8 +31,11 @@ export function moreLike(input: string): string{
     words[i2] = emphasise(words[i2])
     innerText = words.join(" ")
   }
-
-  return "more like " + innerText + "."
+  let amirite = "."
+  if (Math.random() < .1) {
+    amirite = "am I right."
+  }
+  return "more like " + innerText + amirite
 }
 
 function emphasise(text: string): string{

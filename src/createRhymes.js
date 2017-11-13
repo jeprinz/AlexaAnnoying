@@ -7,6 +7,7 @@ let cmuDict = fs.createReadStream(path)
 let wordList = fs.createReadStream("assets/wordlist.10000.txt")
 let gutenList = fs.createReadStream("assets/gutenList.txt")
 let googList = fs.createReadStream("assets/googlelist.txt")
+let extras = fs.createReadStream("assets/extras.txt")
 
 export let dict = {}
 
@@ -50,6 +51,7 @@ function setPronunciation(line) {
 readLines(wordList, addToSet)
 readLines(gutenList, addGutenToSet)
 readLines(googList, addToSet)
+readLines(extras, addToSet)
 readLines(cmuDict, setPronunciation)
 
 function addGutenToSet(line) {
@@ -65,6 +67,7 @@ setTimeout(function() {
     }
   }
   dict = temp
+  dict["HELLO"] = ["HH","EH0","L","OW1"]
   console.log(Object.keys(dict).length)
   let jsondict = "export function getRhymes() {return rhymes}\nvar rhymes = " + JSON.stringify(dict)
 //  fs.writeFile("src/rhymeDict.js", jsondict, function(err) {
