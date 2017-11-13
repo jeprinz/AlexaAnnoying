@@ -7,7 +7,7 @@ import {mixWords} from './mixWords'
 export function moreLike(input: string): string{
   var innerText;
   const [i1, i2, all: [string]] = importantTwoAndAll(input)
-  if (all.length <= 2){
+  if (all.length < 2){
     innerText = input;
   } else {
     const word1 = all[i1]
