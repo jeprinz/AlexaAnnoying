@@ -33,7 +33,7 @@ export function moreLike(input: string): string{
   }
   let amirite = "."
   if (Math.random() < .1) {
-    amirite = "am I right."
+    amirite = " am I right."
   }
   return "more like " + innerText + amirite
 }
